@@ -12,7 +12,7 @@ class Program
         {
             Console.WriteLine("\nLogging Service Test Client");
             Console.WriteLine("1. Send Manual Log Message");
-            Console.WriteLine("2. Run Automated Tests");
+            // Console.WriteLine("2. Run Automated Tests");
             // Console.WriteLine("3. Test Rate Limiting");
             Console.WriteLine("4. Exit");
             Console.Write("Select an option: ");
@@ -24,9 +24,9 @@ class Program
                 case "1":
                     await SendManualLog(logClient);
                     break;
-                case "2":
-                    await testSuite.RunAllTests();
-                    break;
+                // case "2":
+                //     await testSuite.RunAllTests();
+                //     break;
                 // case "3":
                 //     await testSuite.TestRateLimiting();
                 //     break;
