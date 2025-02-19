@@ -1,0 +1,14 @@
+# config.yaml
+server:
+  host: 0.0.0.0
+  port: 5000
+
+logging:
+  log_directory: logs
+  log_file: app.log
+  rate_limit: 10
+  allowed_formats:
+    - text
+    - json
+    - csv
+    - key-value
