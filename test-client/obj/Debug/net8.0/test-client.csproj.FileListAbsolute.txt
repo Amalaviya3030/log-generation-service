@@ -1,0 +1,14 @@
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\bin\Debug\net8.0\test-client.exe
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\bin\Debug\net8.0\test-client.deps.json
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\bin\Debug\net8.0\test-client.runtimeconfig.json
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\bin\Debug\net8.0\test-client.dll
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\bin\Debug\net8.0\test-client.pdb
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.AssemblyInfoInputs.cache
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.AssemblyInfo.cs
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.csproj.CoreCompileInputs.cache
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.dll
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\refint\test-client.dll
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.pdb
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\test-client.genruntimeconfig.cache
+C:\Users\slath\Desktop\logger-service-with-test-client\smaran\logger-service-with-test-client\test-client\obj\Debug\net8.0\ref\test-client.dll
