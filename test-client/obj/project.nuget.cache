@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hZoKqklGhsI=",
+  "dgSpecHash": "zE80UL/Fdwo=",
   "success": true,
   "projectFilePath": "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\slath\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.2\\system.configuration.configurationmanager.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.2\\system.diagnostics.eventlog.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.2\\system.security.cryptography.protecteddata.9.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
