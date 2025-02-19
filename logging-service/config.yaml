@@ -5,7 +5,7 @@ server:
 
 logging:
   log_directory: logs
-  log_file: app.log
+  log_file: logfile.txt
   rate_limit: 10
   allowed_formats:
     - text
