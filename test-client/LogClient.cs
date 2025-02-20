@@ -1,67 +1,71 @@
+// LogClient.cs
 using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using System.Configuration;
 using System.Threading.Tasks;
 
-public class LogClient
+namespace LoggingClient
 {
-    private readonly string host;
-    private readonly int port;
-    private readonly string clientId;
-
-    public LogClient()
+    public class LogClient
     {
-        host = ConfigurationManager.AppSettings["ServerHost"] ?? "127.0.0.1";
-        port = int.Parse(ConfigurationManager.AppSettings["ServerPort"] ?? "5000");
-        clientId = ConfigurationManager.AppSettings["ClientId"] ?? "TestClient1";
-    }
+        private readonly string serverHost;
+        private readonly int serverPort;
+        private readonly string clientId;
 
-    public async Task<bool> SendLog(string level, string message, string format = "default", 
-        string sourceFile = "", int lineNumber = 0)
-    {
-        try
+        public LogClient(string host, int port, string clientId)
         {
-            using var client = new TcpClient();
-            await client.ConnectAsync(host, port);
-            
-            var logMessage = new
+            this.serverHost = host;
+            this.serverPort = port;
+            this.clientId = clientId;
+        }
+
+        public async Task<bool> SendLog(string level, string message, string formatType)
+        {
+            var logData = new
             {
-                client_id = clientId,
+                timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 level = level,
                 message = message,
-                format = format,
-                source_file = sourceFile,
-                line_number = lineNumber
+                client_id = clientId,
+                format_type = formatType
             };
 
-            var json = JsonSerializer.Serialize(logMessage);
-            var data = Encoding.UTF8.GetBytes(json);
-
-            using var stream = client.GetStream();
-            await stream.WriteAsync(data);
-
-            // Read response
-            var buffer = new byte[1024];
-            var bytesRead = await stream.ReadAsync(buffer);
-            var response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            
-            var responseObj = JsonSerializer.Deserialize<JsonElement>(response);
-            var status = responseObj.GetProperty("status").GetString();
-
-            if (status != "success")
+            using (TcpClient client = new TcpClient())
             {
-                Console.WriteLine($"Error: {responseObj.GetProperty("message").GetString()}");
-                return false;
-            }
+                try
+                {
+                    await client.ConnectAsync(serverHost, serverPort);
+                    using (NetworkStream stream = client.GetStream())
+                    {
+                        string jsonData = JsonSerializer.Serialize(logData);
+                        byte[] data = Encoding.UTF8.GetBytes(jsonData);
+                        await stream.WriteAsync(data, 0, data.Length);
 
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error sending log: {ex.Message}");
-            return false;
+                        // Read response
+                        byte[] responseBuffer = new byte[1024];
+                        int bytesRead = await stream.ReadAsync(responseBuffer, 0, responseBuffer.Length);
+                        string response = Encoding.UTF8.GetString(responseBuffer, 0, bytesRead);
+                        
+                        var responseObj = JsonSerializer.Deserialize<JsonElement>(response);
+                        if (responseObj.TryGetProperty("error", out var error))
+                        {
+                            Console.WriteLine($"Error: {error}");
+                            return false;
+                        }
+                        if (responseObj.TryGetProperty("message", out var responseMessage))
+                        {
+                            Console.WriteLine(responseMessage);
+                        }
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return false;
+                }
+            }
         }
     }
 }

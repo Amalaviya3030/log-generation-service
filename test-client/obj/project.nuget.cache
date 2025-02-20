@@ -1,12 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "zE80UL/Fdwo=",
+  "dgSpecHash": "QKGVviy8DoI=",
   "success": true,
   "projectFilePath": "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.2\\microsoft.extensions.configuration.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.2\\microsoft.extensions.configuration.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.2\\microsoft.extensions.configuration.fileextensions.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.2\\microsoft.extensions.configuration.json.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.2\\microsoft.extensions.fileproviders.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.2\\microsoft.extensions.fileproviders.physical.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.2\\microsoft.extensions.filesystemglobbing.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.2\\microsoft.extensions.primitives.9.0.2.nupkg.sha512",
     "C:\\Users\\slath\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.2\\system.configuration.configurationmanager.9.0.2.nupkg.sha512",
     "C:\\Users\\slath\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.2\\system.diagnostics.eventlog.9.0.2.nupkg.sha512",
-    "C:\\Users\\slath\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.2\\system.security.cryptography.protecteddata.9.0.2.nupkg.sha512"
+    "C:\\Users\\slath\\.nuget\\packages\\system.io.pipelines\\9.0.2\\system.io.pipelines.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.2\\system.security.cryptography.protecteddata.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\system.text.encodings.web\\9.0.2\\system.text.encodings.web.9.0.2.nupkg.sha512",
+    "C:\\Users\\slath\\.nuget\\packages\\system.text.json\\9.0.2\\system.text.json.9.0.2.nupkg.sha512"
   ],
   "logs": []
 }

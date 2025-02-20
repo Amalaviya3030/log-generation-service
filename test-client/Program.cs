@@ -1,63 +1,104 @@
-﻿global using System.IO;
+﻿// Program.cs
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
-class Program
+namespace LoggingClient
 {
-    static async Task Main(string[] args)
+    class Program
     {
-        string clientId = args.Length > 0 ? args[0] : "TestClient1";
-        Console.WriteLine($"Running as client: {clientId}");
-
-        var logClient = new LogClient();
-        var testSuite = new TestSuite(logClient);
-
-        while (true)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine($"\nLogging Service Test Client ({clientId})");
-            Console.WriteLine("1. Send Manual Log Message");
-            Console.WriteLine("2. Run Automated Tests");
-            Console.WriteLine("3. Test Rate Limiting");
-            Console.WriteLine("4. Test All Log Formats");
-            Console.WriteLine("5. Exit");
-            Console.Write("Select an option: ");
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-            var choice = Console.ReadLine();
+            Console.WriteLine("Logging Client");
+            
+            string defaultHost = config["LogServer:Host"];
+            Console.Write($"Enter logging server IP address (default: {defaultHost}): ");
+            string host = Console.ReadLine();
+            host = string.IsNullOrEmpty(host) ? defaultHost : host;
 
-            switch (choice)
+            int defaultPort = int.Parse(config["LogServer:Port"]);
+            Console.Write($"Enter server port (default: {defaultPort}): ");
+            string portStr = Console.ReadLine();
+            int port = string.IsNullOrEmpty(portStr) ? defaultPort : int.Parse(portStr);
+
+            Console.Write("Enter client identifier: ");
+            string clientId = Console.ReadLine();
+
+            var client = new LogClient(host, port, clientId);
+            var testSuite = new TestSuite(client);
+
+            while (true)
             {
-                case "1":
-                    await SendManualLog(logClient);
-                    break;
-                case "2":
-                    await testSuite.RunAllTests();
-                    break;
-                case "3":
-                    await testSuite.TestRateLimiting();
-                    break;
-                case "4":
-                    await testSuite.TestFormats();
-                    break;
-                case "5":
-                    return;
-                default:
-                    Console.WriteLine("Invalid option");
-                    break;
+                Console.WriteLine("\nSelect an option:");
+                Console.WriteLine("1. Send log message");
+                Console.WriteLine("2. Run automated tests");
+                Console.WriteLine("3. Exit");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        await SendManualLog(client);
+                        break;
+                    case "2":
+                        await testSuite.RunAllTests();
+                        break;
+                    case "3":
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
             }
         }
-    }
 
-    static async Task SendManualLog(LogClient client)
-    {
-        Console.Write("Enter log level (DEBUG/INFO/WARNING/ERROR/FATAL): ");
-        var level = Console.ReadLine()?.ToUpper() ?? "INFO";
+        static async Task SendManualLog(LogClient client)
+        {
+            Console.WriteLine("\nSelect log level:");
+            Console.WriteLine("1. DEBUG");
+            Console.WriteLine("2. INFO");
+            Console.WriteLine("3. WARNING");
+            Console.WriteLine("4. ERROR");
+            Console.WriteLine("5. FATAL");
 
-        Console.Write("Enter message: ");
-        var message = Console.ReadLine() ?? "Test message";
+            string choice = Console.ReadLine();
+            string level = choice switch
+            {
+                "1" => "DEBUG",
+                "2" => "INFO",
+                "3" => "WARNING",
+                "4" => "ERROR",
+                "5" => "FATAL",
+                _ => "INFO"
+            };
 
-        Console.Write("Enter format (text/json/key_value/csv): ");
-        var format = Console.ReadLine()?.ToLower() ?? "text";
+            Console.WriteLine("\nSelect log format:");
+            Console.WriteLine("1. text");
+            Console.WriteLine("2. json");
+            Console.WriteLine("3. csv");
+            Console.WriteLine("4. key-value");
 
-        await client.SendLog(level, message, format);
+            string formatChoice = Console.ReadLine();
+            string format = formatChoice switch
+            {
+                "1" => "text",
+                "2" => "json",
+                "3" => "csv",
+                "4" => "key-value",
+                _ => "text"
+            };
+
+            Console.Write("Enter log message: ");
+            string message = Console.ReadLine();
+
+            bool success = await client.SendLog(level, message, format);
+            Console.WriteLine(success ? "Log sent successfully" : "Failed to send log");
+        }
     }
 }
