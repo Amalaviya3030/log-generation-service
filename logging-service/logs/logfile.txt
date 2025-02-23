@@ -1,0 +1,3 @@
+[2025-02-22 16:13:09.153] [DEBUG] [aryan@192.168.184.1] manual-debug-test-aryan
+{"timestamp": "2025-02-22 16:14:53.285", "level": "ERROR", "client_id": "aryan", "client_ip": "192.168.184.1", "message": "manual-error-json-aryan"}
+[2025-02-23 14:34:43.838] [DEBUG] [samar@10.250.126.28] test by samar

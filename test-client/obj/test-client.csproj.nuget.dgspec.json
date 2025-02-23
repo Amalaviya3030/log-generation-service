@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\log-generation-service\\test-client\\test-client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\log-generation-service\\test-client\\test-client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\log-generation-service\\test-client\\test-client.csproj",
         "projectName": "test-client",
-        "projectPath": "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\test-client.csproj",
-        "packagesPath": "C:\\Users\\slath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\slath\\Desktop\\logger-service-with-test-client\\smaran\\logger-service-with-test-client\\test-client\\obj\\",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\log-generation-service\\test-client\\test-client.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\log-generation-service\\test-client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\slath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
